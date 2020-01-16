@@ -9,20 +9,36 @@ export default class HomePage extends Component {
 
     // HomePage Component State
     state = {
-        message: ''
+        listOfPlayers: [],
+
     }
 
     // componentDidMount() - bring in data on players so you can select players to play
     componentDidMount() {
-        axios.get('/')
+        axios.get('/api/player')
             .then((res) => {
-                this.setState({message: res.data})
+                this.setState({ listOfPlayers: res.data })
             })
     }
 
 
+
+    // startGame() - starts game with players selected
+    startGame = () => {
+        alert('start game')
+    }
+
     // Rendered in Browser
     render() {
+
+        const listOfPlayers = this.state.listOfPlayers.map(
+            (player) => {
+                return <div>
+                    <h2>{player.name}</h2>
+                </div>
+
+            })
+
         return (
             <div className='homePage'>
 
@@ -39,16 +55,53 @@ export default class HomePage extends Component {
 
 
                 <div className='homeBody'>
-                    <div className='homePagePlayer'>
-                        <h2>Player One</h2>
+                    <div className='homeBodyAllPlayersArea'>
+                        <div className='homePagePlayer'>
+                            <h2>Player One</h2>
 
-                    </div> 
+                            <div className='homePagePlayerSelectForm'>
+                                <select
+                                    name="playerId"
+                                // onChange={}
+                                // value={this.handleInputChange}
+                                >
+                                    {this.state.listOfPlayers.map(
+                                        (player) => {
+                                            return <option value={player._id}>{player.name}</option>
+                                        }
+                                    )}
+                                </select>
 
-                    <div className='homePagePlayer'>
-                        <h2>Player Two</h2>
-                        
+                            </div>
+                        </div>
+
+                        <div className='homePagePlayer'>
+                            <h2>Player Two</h2>
+
+                            <div className='homePagePlayerSelectForm'>
+                                <select
+                                    name="playerId"
+                                // onChange={}
+                                // value={this.handleInputChange}
+                                >
+                                    {this.state.listOfPlayers.map(
+                                        (player) => {
+                                            return <option value={player._id}>{player.name}</option>
+                                        }
+                                    )}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='startGameButton'>
+                        <button onClick={this.startGame}>Start Game</button>
                     </div>
                 </div>
+
+
+
+
 
 
             </div>
