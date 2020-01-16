@@ -35,9 +35,21 @@ ScoreRouter.post('/', (req, res) => {
 })
 
 // updateScore()
-
+ScoreRouter.put('/:scoreId', (req, res) => {
+  ScoreApi.updateScore(req.params.scoreId, req.body)
+  .then((updatedScore) => {
+    res.json(updatedScore)
+  })
+})
 
 // deleteScore()
+ScoreRouter.delete('/:scoreId', (req, res) => {
+  ScoreApi.deleteScore(req.params.scoreId)
+  .then((deletedScore) => {
+    res.json(deletedScore)
+  })
+})
+
 
 // EXPORT ROUTER
 module.exports = {
