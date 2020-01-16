@@ -13,16 +13,16 @@ const PlayerRouter = express.Router()
 // getAllPlayers()
 PlayerRouter.get('/', (req, res) => {
   PlayerApi.getAllPlayers()
-  .then((players) => {
-    res.json(players)
+  .then((allPlayers) => {
+    res.json(allPlayers)
   })
 })
 
 // getOnePlayer()
 PlayerRouter.get('/:playerId', (req, res) => {
   PlayerApi.getOnePlayer(req.params.playerId)
-  then((onePlayer) => {
-    res.json(onePlayer)
+  .then((singlePlayer) => {
+    res.json(singlePlayer)
   })
 })
 
