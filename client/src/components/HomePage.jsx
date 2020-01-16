@@ -12,7 +12,7 @@ export default class HomePage extends Component {
         message: ''
     }
 
-    // componentDidMount() - usually brings in data and sets state but no need really, this is useless here in homepage
+    // componentDidMount() - bring in data on players so you can select players to play
     componentDidMount() {
         axios.get('/')
             .then((res) => {
@@ -35,7 +35,19 @@ export default class HomePage extends Component {
                     </nav>
 
                     <h1>Spite and Malice</h1>
+                </div>
 
+
+                <div className='homeBody'>
+                    <div className='homePagePlayer'>
+                        <h2>Player One</h2>
+
+                    </div> 
+
+                    <div className='homePagePlayer'>
+                        <h2>Player Two</h2>
+                        
+                    </div>
                 </div>
 
 

@@ -4,7 +4,7 @@
 
 .homePage h1 {
   text-align: center;
-  flex: 2;
+  flex: 1.5;
 }
 
 .pageHeader {
@@ -15,4 +15,11 @@
   display: flex;
   flex-direction: column;
   
+}
+
+
+.homeBody {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
 }
