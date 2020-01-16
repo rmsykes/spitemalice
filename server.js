@@ -4,7 +4,8 @@ const app = express()
 
 // IMPORT ROUTERS
 const { PlayerRouter } = require('./controllers/player.js')
-
+const { ScoreRouter } = require('./controllers/score.js')
+ 
 
 /* Step 3
  *
@@ -33,6 +34,8 @@ app.use(express.static(`${__dirname}/client/build`))
 
 // ADD ROUTERS
 app.use('/api/player', PlayerRouter)
+app.use('/api/score', ScoreRouter)
+
 
 /* Step 5
  *
